@@ -23,7 +23,7 @@ export async function getResponse(text: string, _history: Message[]): Promise<st
     return data.answer ?? data.response ?? JSON.stringify(data);
   } catch (error) {
     if (error instanceof TypeError && error.message.includes("fetch")) {
-      return "⚠️ Could not reach the server. Please check your connection and try again.";
+      return "⚠️ Too many requests. Please wait a moment and try again.";
     }
     return `⚠️ An error occurred: ${error instanceof Error ? error.message : "Unknown error"}`;
   }
